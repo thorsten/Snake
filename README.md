@@ -32,7 +32,11 @@ pnpm dev          # start the dev server
 | `pnpm typecheck`    | TypeScript project check (`tsc -b`) |
 | `pnpm test`         | Unit tests with Vitest              |
 | `pnpm e2e`          | End-to-end tests with Playwright    |
+| `pnpm lighthouse`   | Lighthouse CI audit of the build    |
 | `pnpm build`        | Typecheck + production build (PWA)  |
+
+Commit messages follow [Conventional Commits](https://www.conventionalcommits.org),
+enforced locally by a commitlint hook (husky) and in CI.
 
 All gates run in GitHub Actions on every push and pull request
 (`.github/workflows/ci.yml`).
