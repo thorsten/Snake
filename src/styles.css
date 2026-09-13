@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0b0b1a;
+  --fg: #f2f2ff;
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(255, 0, 128, 0.12), transparent 60%),
+    radial-gradient(1000px 500px at 90% 10%, rgba(0, 200, 255, 0.12), transparent 60%),
+    radial-gradient(900px 700px at 50% 110%, rgba(120, 255, 0, 0.1), transparent 60%), var(--bg);
+  color: var(--fg);
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.game {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.scores {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: min(90vw, 560px);
+  font-size: 1rem;
+}
+
+.scores h1 {
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+}
+
+.rainbow-text {
+  background: linear-gradient(
+    90deg,
+    #ff004c,
+    #ff8a00,
+    #ffe600,
+    #2bff00,
+    #00e5ff,
+    #7b2bff,
+    #ff00d4,
+    #ff004c
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow-slide 4s linear infinite;
+}
+
+@keyframes rainbow-slide {
+  to {
+    background-position: 200% 0;
+  }
+}
+
+.board {
+  width: min(90vw, 90vh, 560px);
+  aspect-ratio: 1;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.08),
+    0 0 40px rgba(123, 43, 255, 0.25),
+    0 0 80px rgba(0, 229, 255, 0.15);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  background: rgba(11, 11, 26, 0.72);
+  backdrop-filter: blur(4px);
+  border-radius: 14px;
+  z-index: 1;
+  text-align: center;
+}
+
+.overlay .big {
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-weight: 800;
+}
+
+.overlay button {
+  font: inherit;
+  font-weight: 700;
+  color: #0b0b1a;
+  background: linear-gradient(90deg, #ff8a00, #ffe600, #2bff00, #00e5ff);
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.8rem;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.overlay button:hover {
+  transform: scale(1.06);
+}
+
+.hint {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
