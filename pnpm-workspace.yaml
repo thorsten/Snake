@@ -1,0 +1,11 @@
+# Install native binaries for both the macOS host and the Linux dev sandbox,
+# which share this working tree.
+supportedArchitectures:
+  os:
+    - darwin
+    - linux
+  cpu:
+    - arm64
+    - x64
+  libc:
+    - glibc
